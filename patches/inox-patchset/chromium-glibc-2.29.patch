@@ -64,7 +64,7 @@ Change-Id: I3f4b90114b2fc1d9929e3c0a85bbe8f10def3c20
    BPF_ASSERT(thread.Start());
 --- a/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
 +++ b/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
-@@ -134,7 +134,8 @@ namespace sandbox {
+@@ -135,7 +135,8 @@ namespace sandbox {
  #if !defined(OS_NACL_NONSFI)
  // Allow Glibc's and Android pthread creation flags, crash on any other
  // thread creation attempts and EPERM attempts to use neither
@@ -74,7 +74,7 @@ Change-Id: I3f4b90114b2fc1d9929e3c0a85bbe8f10def3c20
  ResultExpr RestrictCloneToThreadsAndEPERMFork() {
    const Arg<unsigned long> flags(0);
  
-@@ -153,8 +154,16 @@ ResultExpr RestrictCloneToThreadsAndEPER
+@@ -154,8 +155,16 @@ ResultExpr RestrictCloneToThreadsAndEPER
        AnyOf(flags == kAndroidCloneMask, flags == kObsoleteAndroidCloneMask,
              flags == kGlibcPthreadFlags);
  
